@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  books-db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_books
+      MYSQL_HOST: books-db
+      MYSQL_TCP_PORT: 3308
+    ports:
+      - 3308:3308
+    networks:
+      - gustavo-network
+  books-api:
+    image: gustavorsmedina/books-api
+    restart: always
+    build: books-api
+    environment:
+      SPRING.DATASOURCE.URL: jdbc:mysql://books-db:3308/db_books
+      SPRING.DATASOURCE.USERNAME: root
+      SPRING.DATASOURCE.PASSWORD: root
+    ports:
+      - 8080:8080
+    depends_on:
+      - books-db
+    networks:
+      - gustavo-network
+networks:
+  gustavo-network:
+    driver: bridge

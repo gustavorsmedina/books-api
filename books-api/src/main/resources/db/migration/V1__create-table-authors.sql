@@ -1,0 +1,7 @@
+CREATE TABLE authors(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(60) NOT NULL,
+    birth_date DATE NOT NULL,
+    biography VARCHAR(255) UNIQUE NOT NULL,
+    PRIMARY KEY (id)
+);
