@@ -1,53 +1,55 @@
 # Books API
 
-REST API for book management with Java, Spring, Maven, JPA, Hibernate, MySQL, Flyway, JUnit 5, Mockito, Swagger, Docker and AWS.
+- Java
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Flyway
+- JUnit 5
+- Mockito
+- Swagger
+- Docker
 
 ---
 
-## Docker Solution
+## Diagrama
 
 ![Docker Solution](/images/docker-solution-resized.jpg "Docker Solution")
 
-## AWS Solution
-
-![AWS Solution](/images/aws-solution-resized.jpg "AWS Solution")
-
-#### AWS solution video: <https://youtu.be/7Q_ibI6qOSU>
-
 ---
 
-## Requirements
+## Requerimentos
 
-**1 - Install Docker on your machine**
+**1 - Instale o Docker em sua máquina**
 
 <https://www.docker.com>
 
 ---
 
-## Step by step
+## Passo a passo de como usar
 
-**1 - Clone the repository**
+**1 - Clone o repositório**
 
 ```bash
 git clone https://github.com/gustavorsmedina/books-api.git
 ```
 
-**2 - Open the terminal in the project root folder and execute the following command:**
+**2 - Abra o terminal na pasta raiz do projeto e execute o seguinte comando:**
 
 ```bash
 docker compose up -d
 ```
 
-- The first time you use the command `docker compose up -d`, you will download all necessary images for the application to run on your machine. In a few minutes, the application will be up and running.
-- You can check if both containers are already running using the command `docker ps`.
+- A primeira vez que você usar o comando `docker compose up -d`, todas as imagens necessárias para a aplicação serão baixadas para rodar em sua máquina. Em poucos minutos, a aplicação estará em funcionamento.
+- Você pode verificar se ambos os containers já estão em execução usando o comando `docker ps`.
 
 ---
 
-## Observations
+## Observações
 
-- The application will be available at the address: <http://localhost:8080>
-- The documentation will be available at the address: <http://localhost:8080/swagger-ui/index.html>
-- All requests are prepared in the .JSON file located in the root directory of the project.
+- A aplicação estará disponível no endereço: <http://localhost:8080>
+- A documentação estará disponível no endereço: <http://localhost:8080/swagger-ui/index.html>
+- Todas as requisições estão preparadas no arquivo .JSON localizado no diretório raiz do projeto.
 
 ---
 
@@ -55,32 +57,32 @@ docker compose up -d
 
 ### Authors
 
-| Method | Url                            | Description          | Request Body          |
-| ------ | ------------------------------ | -------------------- | --------------------- |
-| POST   | /v1/authors                    | Create a new author. | [JSON](#createauthor) |
-| GET    | /v1/authors/{id}               | Get author by id.    |                       |
-| GET    | /v1/authors                    | Get all authors.     |                       |
-| GET    | /v1/authors/search&name={name} | Get books by name.   |                       |
-| PUT    | /v1/authors/{id}               | Update author by id. | [JSON](#updateauthor) |
-| DELETE | /v1/authors/{id}               | Delete author by id. |                       |
+| Method | Url                            | Descrição                | Request Body            |
+| ------ | ------------------------------ | ------------------------ | ----------------------- |
+| POST   | /v1/authors                    | Crie um novo autor.      | [JSON](#criarautor)     |
+| GET    | /v1/authors/{id}               | Busque um autor por id.  |                         |
+| GET    | /v1/authors                    | Busque todos autores.    |                         |
+| GET    | /v1/authors/search&name={name} | Busque autores pelo nome.|                         |
+| PUT    | /v1/authors/{id}               | Atualize um autor por id.| [JSON](#atualizarautor) |
+| DELETE | /v1/authors/{id}               | Apaga um autor por id.   |                         |
 
 ### Books
 
-| Method | Url                          | Description                             | Request Body        |
-| ------ | ---------------------------- | --------------------------------------- | ------------------- |
-| POST   | /v1/books                    | Create a new book.                      | [JSON](#createbook) |
-| GET    | /v1/books/{id}               | Get book by id                          |                     |
-| GET    | /v1/books                    | Get all books.                          |                     |
-| GET    | /v1/books/search&name={name} | Get books by name.                      |                     |
-| GET    | /v1/books/genre/{genre}      | Filter books by genre.                  |                     |
-| PUT    | /v1/books/{id}               | Update book by id.                      | [JSON](#updatebook) |
-| DELETE | /v1/books/{id}               | Check if email is available to register |                     |
+| Method | Url                          | Description                             | Request Body            |
+| ------ | ---------------------------- | --------------------------------------- | ----------------------- |
+| POST   | /v1/books                    | Crie um novo livro.                     | [JSON](#criarlivro)     |
+| GET    | /v1/books/{id}               | Busque um livro por id.                 |                         |
+| GET    | /v1/books                    | Busque todos os livros.                 |                         |
+| GET    | /v1/books/search&name={name} | Busque livros pelo nome.                |                         |
+| GET    | /v1/books/genre/{genre}      | Filtre livros pelo genêro.              |                         |
+| PUT    | /v1/books/{id}               | Atualize um livro por id.               | [JSON](#atualizarlivro) |
+| DELETE | /v1/books/{id}               | Apaga um livro por id.                  |                         |
 
 ---
 
-## Request Body
+## Requisições
 
-##### <a id="createbook">/v1/books - Create a new book (Needs an author).</a>
+##### <a id="criarlivro">/v1/books - Cria um livro (Precisa de um autor).</a>
 
 ```json
 {
@@ -94,7 +96,7 @@ docker compose up -d
 }
 ```
 
-##### <a id="updatebook">/v1/books - Update author by id (All fields are optional).</a>
+##### <a id="atualizarlivro">/v1/books - Atualize um livro por id (Todos os campos são opcionais).</a>
 
 ```json
 {
@@ -108,7 +110,7 @@ docker compose up -d
 }
 ```
 
-##### <a id="createauthor">/v1/books - Create a new author.</a>
+##### <a id="criarautor">/v1/books - Crie um novo autor.</a>
 
 ```json
 {
@@ -122,7 +124,7 @@ docker compose up -d
 }
 ```
 
-##### <a id="updateauthor">/v1/books - Update author by id.</a>
+##### <a id="atualizarautor">/v1/books - Atualize um autor por id.</a>
 
 ```json
 {
